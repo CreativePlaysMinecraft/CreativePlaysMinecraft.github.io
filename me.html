@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CreativePlays | Recent Uploads</title>
+	<style>
+		body {
+			background: url(https://i.imgur.com/ibIej7D.jpg) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			font-family: Courier;
+			color: white;
+			text-align: center;
+			font-size: 75px;
+		}
+
+		p {
+			font-family: Courier;
+			color: white;
+			margin: 5%;
+			font-size: 20px;
+		}
+
+		td {
+			color: black;
+			font-family: Courier;
+			text-align: center;
+			background-color: #ABB2B9;
+		}
+
+		#roundImage {
+			border-radius: 1000%;
+		}
+
+		h3 {
+			font-family: Courier;
+			color: white;
+			text-align: center;
+			font-size: 50px;
+		}
+
+		marquee {
+			font-family: Courier;
+			color: white;
+			text-align: center;
+
+		}
+	</style>
+</head>
+
+<body>
+	<h1>CreativePlays</h1>
+	<div>
+		<center>
+			<img id="roundImage" src="https://yt3.ggpht.com/ytc/AAUvwnguX8ama9xL0T4IK-GjQMcQCjMmGwPguuetU1Uf=s500-c-k-c0x00ffffff-no-rj" width="250" height="250" ></center>
+	</div>
+	<br>
+	<table border="0" width="100%">
+		<tr>
+			<td><a href="index.html"> <b>&nbsp; &nbsp; About Me &nbsp; &nbsp;</b></a></td>
+			<td><a href="me.html"> <b>Recent Uploads<b> </a></td>
+  </tr>
+</table>
+<b><center><p><h3>Recent Uploads</h3></p></center></b>
+					<center>
+						<iframe class="latestVideoEmbed" vnum='1' cid="UC6ZvYQYMz0hBolseAKFa96g" width="600"
+							height="340" frameborder="0" allowfullscreen></iframe>
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+						<script>
+							var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+function loadVideo(iframe) {
+  $.getJSON(reqURL + iframe.getAttribute('cid'),
+    function(data) {
+      var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
+      console.log(videoNumber);
+      var link = data.items[videoNumber].link;
+      id = link.substr(link.indexOf("=") + 1);
+      iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=0&autoplay=1");
+    }
+  );
+}
+var iframes = document.getElementsByClassName('latestVideoEmbed');
+for (var i = 0, len = iframes.length; i < len; i++) {
+  loadVideo(iframes[i]);
+  
+}
+
+						</script>
+						<br>
+						<br>
+						<table border="0" width="100%">
+							<tr>
+								<td>
+									Copyright Creative Plays Minecraft&trade;
+								</td>
+							</tr>
+						</table>
+					</center>
+
+</html>
